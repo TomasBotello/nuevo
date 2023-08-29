@@ -1,0 +1,25 @@
+npm install firebase
+
+
+======================================================================================================================================
+
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyBP5WPzs4kq3lOFd28otnA-7x_Af2iIqCQ",
+  authDomain: "puntoventa-555fc.firebaseapp.com",
+  projectId: "puntoventa-555fc",
+  storageBucket: "puntoventa-555fc.appspot.com",
+  messagingSenderId: "94579332460",
+  appId: "1:94579332460:web:258fb69519b8bdcb590f49"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+
+=============================================================================
