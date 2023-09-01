@@ -11,6 +11,7 @@ const persona ={
         semestre:7
  }]
 
+
  /*console.log(fruta[7].nombre)*/
 
 
@@ -20,3 +21,4 @@ const persona ={
  }
 
  console.log(promedio(8,9,7,9.5))
+ 
