@@ -1,18 +1,27 @@
 const express = require('express');
 const router = express.Router();
-const model = require('../models/ventas.js')();
-const Venta = require('..models/ventas.js');
+const model = require('../models/datos')();
+const Venta = require('../models/datos');
 
 router.get('/', async (req, res) =>{
     const datos = await Venta.find();
-    console.log(datos);
-    res.render('index.ejs', {
+    console.log("los datos son".datos);
+    res.render('index.ejs',{
         datos
     });
 });
 
-router.get('/',(req,res)=>{
-    res.render('index.ejs')
-})
+router.post('/add',async (req,res) =>{
+    const valor = new Venta(req.body);
+    console.log(req.body);
+    await valor.save();
+    res.redirect('/');
+});
+
+router.get('/del/id', async (req,res) =>{
+    const {id} = req.params;
+    await valor.findByIdAndRemove();
+    res.redirect('/');
+});
 
 module.exports = router;

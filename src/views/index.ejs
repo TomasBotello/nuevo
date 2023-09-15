@@ -1,15 +1,81 @@
-<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
 <body>
+ <div class="container">
+    <!-- comienza formulario -->
     <div class="container">
-        
+        <div class="col-4">
+            <div class="card-body">
+                <form action="/add" method="POST">
+                    <label for="producto" class="form-label">Producto</label>
+                    <div class="form-grup">
+                        <input type="text" id="producto" name="producto"  placeholder="producto" class="form-control">
+                    </div>
+                    <label for="precio" class="form-label">Precio</label>
+                    <div class="form-grup">
+                        <input type="number" id="precio" name="precio"  class="form-control">
+                    </div>
+                    <label for="iva" class="form-label">IVA</label>
+                    <div class="form-grup">
+                        <input type="number" id="iva" name="iva"   class="form-control">
+                    </div>
+                    <label for="descripcion" class="form-label">Descripcion</label>
+                    <div class="form-grup">
+                        <input type="text" id="descripcion" name="descripcion"  placeholder="Descripcion" class="form-control">
+                    </div>
+                    <button  class="btn btn-primary">Registrar</button>
+                </form>
+            </div>
+        </div>            
+        </div>
+<!-- fin del formulario -->
+
+    
+    <div class="col-5">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th>IVA</th>
+                    <th>Descripcion</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <% for(var i = 0; i < datos.length; i++){  %>
+                    <tr>
+                        <td><%= i+1  %></td>
+                        <td><%= datos[i].producto  %></td>
+                        <td><%= datos[i].precio  %></td>
+                        <td><%= datos[i].iva  %></td>
+                        <td><%= datos[i].descripcion %></td>
+                        <td>
+                            <!--<a class="btn btn-primary" href="/del/<%= datos[i].id %>">Eliminar</a>-->
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                Eliminar
+                            </button>
+                            
+                            <!-- Modal -->
+                          
+
+                           
+                        </td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
     </div>
-    <p>Hola, está cargando la plantilla</p>
+</div>
+
+ </div>
+   
 </body>
 </html>
