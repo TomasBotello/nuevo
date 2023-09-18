@@ -32,3 +32,5 @@ mongoose.connect("mongodb+srv://tbotello73:bdtbote@cluster0.fbmoru0.mongodb.net/
 app.set('views', path.join(__dirname,'views'));
 app.set('view engine', 'ejs');
 //desplegar mensaje de conectado
+
+
