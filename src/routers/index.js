@@ -20,8 +20,19 @@ router.post('/add', async (req, res) => {
 router.get('/del/:id', async (req, res) => {
     const { id } = req.params;
     await Venta.findByIdAndRemove(id);
+    //res.status(200).send('El producto se eliminó correctamente');
     res.redirect('/');
 
 });
+
+router.post('/upd/:id', async (req, res) => {
+    const { id } = req.params;
+    const producto = req.body;
+
+    await Venta.findByIdAndUpdate(id, producto);
+    res.redirect('/');
+});
+
+
 
 module.exports = router;

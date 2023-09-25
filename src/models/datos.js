@@ -8,4 +8,8 @@ const Venta = new Schema({
     descripcion: String
 });
 
+Venta.methods.update = async function (data) {
+    await this.updateOne({ _id: this._id }, data);
+};
+
 module.exports = mongoose.model('datos', Venta);

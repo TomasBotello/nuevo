@@ -8,14 +8,62 @@
 </head>
 <body>
 <div class="container">
-    <!-- comienza form-->
 
-    <div class="container">
+<!-- boton abrir modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registrarModal" style="margin-top: 20px; margin-bottom: 20px;">
+        Registrar
+    </button> 
+<!-- fin boton abrir modal -->
+
+<!--   modal registrar -->
+
+    <div class="modal fade" id="registrarModal" tabindex="-1" aria-labelledby="registrarModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registrarModalLabel">Registrar producto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="/add" method="POST">
+                        <div class="form-group">
+                            <label for="producto" class="form-label">Nombre</label>
+                            <input type="text" id="producto" name="producto" placeholder="Producto" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="precio" class="form-label">Precio</label>
+                            <input type="number" id="precio" name="precio"  class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="iva" class="form-label">IVA</label>
+                            <input type="number" id="iva" name="iva"  class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="descripcion" class="form-label">Descripcion del producto</label>
+                            <input type="text" id="descripcion" name="descripcion" placeholder="descripcion" class="form-control">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">Registrar</button>
+                        </div>
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+<!--   cerrar modal registrar -->
+
+
+
+
+    <!-- comienza form-->
+    <!-- <div class="container">
         
         <div class="col-4">
            <div class="card">
                <div class="card-body">
-
 
                 <form action="/add" method="POST">
                     <div class="form-group">
@@ -39,7 +87,7 @@
 
                 </div>
            </div>
-        </div>
+        </div> -->
     
 
 
@@ -50,9 +98,9 @@
                 <tr>
                     <th>#</th>
                     <th>Producto</th>
-                    <th>Precio</th>
-                    <th>IVA</th>
-                    <th>Descripcion</th>
+                    <>Precio</
+                    <>IVA</
+                    <>Descripcion</
                     <th>Opciones</th>
 
                 </tr>
@@ -76,21 +124,62 @@
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">¿Desea eliminar el registro?</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">Seguro ¿quieres eliminar el registro?</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                            <a href="/del/<%= datos[i]._id %>" class="btn btn-primary">Eliminar</a>
+                                            <a href="/del/<%= datos[i]._id %>" class="btn btn-primary">Si, Eliminar</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#updateModal_<%= datos[i]._id %>">
+                                Actualizar
+                            </button>
+
+                            <!-- Modal  de actu-->
+                            <div class="modal fade" id="updateModal_<%= datos[i]._id %>" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="updateModalLabel">Actualizar datos</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form action="/upd/<%= datos[i]._id %>" method="POST">
+                                                <div class="form-group">
+                                                    <label for="producto" class="form-label">Nombre</label>
+                                                    <input type="text" id="producto" name="producto" value="<%= datos[i].producto %>" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="precio" class="form-label">Precio</label>
+                                                    <input type="number" id="precio" name="precio" value="<%= datos[i].precio %>" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="iva" class="form-label">IVA</label>
+                                                    <input type="number" id="iva" name="iva" value="<%= datos[i].iva %>" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="descripcion" class="form-label">Descripcion del producto</label>
+                                                    <input type="text" id="descripcion" name="descripcion" value="<%= datos[i].descripcion %>" class="form-control">
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                                    <button type="submit" class="btn btn-primary">Guardar</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                                                        <!--  cerrado Modal  de actu-->
                         </td>
                     </tr>
                 <% } %>
             </tbody>
-        </table>
+        </table> 
     </div>
 </div>
 
@@ -99,6 +188,7 @@
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
  integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
  crossorigin="anonymous"></script>
-   
+
+ 
 </body>
 </html>
