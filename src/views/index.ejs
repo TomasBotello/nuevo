@@ -6,11 +6,11 @@
     <title>Inicio</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
+
 <body>
 <div class="container">
-
 <!-- boton abrir modal -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registrarModal" style="margin-top: 20px; margin-bottom: 20px;">
+    <button type="button" class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#registrarModal" style="margin-top: 20px; margin-bottom: 20px; background-color: #9a68af  ; color: white; border-color: #9a68af  ; ">
         Registrar
     </button> 
 <!-- fin boton abrir modal -->
@@ -43,8 +43,8 @@
                             <input type="text" id="descripcion" name="descripcion" placeholder="descripcion" class="form-control">
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                            <button type="submit" class="btn btn-warning" >Registrar</button>
+                            <button type="button" style="background-color: #c180d5  ; color: white; border-color: #c180d5  ;"  class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="submit" style="background-color: #9470c4  ; color: white; border-color: #9470c4  ;"  class="btn btn-warning" >Registrar</button>
                         </div>
                     </form>
                 </div>
@@ -114,7 +114,7 @@
                         <td><%= datos[i].descripcion  %></td>
                         <td>
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal_<%= datos[i]._id %>">
+                            <button type="button" style="margin-bottom: 10px; width: -webkit-fill-available; background-color: #9a68af; color: white; border-color: #9a68af;"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal_<%= datos[i]._id %>"  >
                                 Eliminar
                             </button>
             
@@ -127,14 +127,14 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                            <a href="/del/<%= datos[i]._id %>" class="btn btn-primary">Si, Eliminar</a>
+                                            <button type="button" style="background-color: #c180d5  ; color: white; border-color: #c180d5  ;" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                            <a href="/del/<%= datos[i]._id %>" style=" background-color: #9a68af  ; color: white; border-color: #9a68af  ;" class="btn btn-primary">Si, Eliminar</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#updateModal_<%= datos[i]._id %>">
+                            <button type="button" style="background-color: #5868ae   ; color: white; border-color: #5868ae  ;" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#updateModal_<%= datos[i]._id %>">
                                 Actualizar
                             </button>
 
@@ -165,8 +165,8 @@
                                                     <input type="text" id="descripcion" name="descripcion" value="<%= datos[i].descripcion %>" class="form-control">
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                                    <button type="submit" class="btn btn-warning">Guardar</button>
+                                                    <button type="button" style="background-color: #c180d5  ; color: white; border-color: #c180d5  ;" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                                    <button style="background-color: #9470c4   ; color: white; border-color: #9470c4   ;" type="submit" class="btn btn-warning">Guardar</button>
                                                 </div>
                                             </form>
                                         </div>
